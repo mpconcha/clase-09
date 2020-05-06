@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Todo lo que debes saber del té</title>
+    <!-- COMMON TAGS -->
+    <!-- Search Engine -->
+    <meta name="description" content="Aquí puedes encontrar desde las leyendas de su origen hasta los datos de producción mundial">
+    <meta name="image" content="https://images.clarin.com/2015/03/19/HykMHphXx_1256x620.jpg">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Todo lo que debes saber del té">
+    <meta itemprop="description" content="Aquí puedes encontrar desde las leyendas de su origen hasta los datos de producción mundial">
+    <meta itemprop="image" content="https://images.clarin.com/2015/03/19/HykMHphXx_1256x620.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Todo lo que debes saber del té">
+    <meta name="twitter:description" content="Aquí puedes encontrar desde las leyendas de su origen hasta los datos de producción mundial">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="Todo lo que debes saber del té">
+    <meta name="og:description" content="Aquí puedes encontrar desde las leyendas de su origen hasta los datos de producción mundial">
+    <meta name="og:type" content="website">
+
+    <!-- Fin de los metadatos -->
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        figure {
+            padding: 0.5rem 1rem;
+        }
+
+        figure figcaption {
+            margin: 0rem -0.5em -0.5em -0.5em;
+            padding-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <select onchange="if (this.value) window.location.href=this.value">
+            <option value="index.html">Todo lo que debes saber del té</option>
+            <option value="page-1.html">Tipos de té</option>
+            <option value="page-2.html" selected>Cantidad producida de té mundialmente</option>
+        </select>
+    </nav>
+    <div class="container">
+        <header>
+            <h1><a href="index.html">Todo lo que debes saber del té</a></h1>
+        </header>
+        <section>
+            <h2>Cantidad producida de té mundialmente</h2>
+            <p>Las plantaciones de té han alcanzado un importante desarrollo productivo gracias a las diversas mejoras tecnológicas que se han ido desarrollando. </p>
+            <p><a href="page-1.html">Volver a los tipos de té.</a> Se puede identificar que en los 5 continentes se produce el té y que dentro de estos la industria se distribuye en 40 países. China e India son los que su producción destaca por sobre el resto como se ve representado en el siguiente grafico: </p>
+            <figure>
+                <canvas id="uci"></canvas>
+                <figcaption>Ministerio de agroindustria presidencia de la nación Autor: Prof. Luis A. De Berdani </figcaption>
+            </figure>
+            <p>Además de India y China se ubican Kenia, Sri Lanka, Turquía Vietnam, Argentina, Indonesia, Irán y Japón. El conjunto de estos 10 países produce el 96% de la producción mundial, dejando tan solo un 4% al resto de los países involucrados en la industria. Es importante destacar que cada país tiene una industria especializada distinta a la de los otros, por lo que el producto que cada uno ofrece es diferente y único. </p>
+        </section>
+        <footer>
+            <hr>
+            <p>María Paz Concha
+                <time datetime="2020-05-06" class="derecha">Miércoles, 6 de mayo de 2020</time>
+            </p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script>
+        Chart.defaults.global.defaultFontFamily = "'Lucida Console', 'Monaco', 'monospace'";
+        new Chart(document.getElementById('uci').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ["Porcentaje de producción"],
+                datasets: [{
+                    label: 'China',
+                    borderColor: '#B15317',
+                    backgroundColor: '#B15317',
+                    borderWidth: 1,
+                    pointRadius: 2,
+                    lineTension: 0,
+                    data: [28]
+                }, {
+                    label: 'India',
+                    borderColor: '#7F7F1D',
+                    backgroundColor: '#7F7F1D',
+                    borderWidth: 1,
+                    pointRadius: 2,
+                    lineTension: 0,
+                    data: [25]
+                }, {
+                    label: 'Kenia, Sri Lanka, Turquía Vietnam, Argentina, Indonesia, Irán y Japón',
+                    borderColor: '#18482A', // noten que este color coincide con el de h1{…} en el CSS
+                    backgroundColor: '#18482A', // esto para darle consistencia a los colores en uso
+                    borderWidth: 1,
+                    pointRadius: 2,
+                    lineTension: 0,
+                    data: [39]
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Porcentajes de producción del top 10 países productores de té'
+                },
+                tooltips: {
+                    position: 'nearest',
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            minRotation: 0
+                        }
+                    }]
+                }
+            },
+
+        });
+    </script>
+</body>
+
+</html>
